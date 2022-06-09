@@ -2,8 +2,8 @@ version: "3"
 
 services:
   mosquitto:
-    image: eclipse-mosquitto
-    restart: always
+    image: eclipse-mosquitto:2.0.14-openssl
+    restart: unless-stopped
     networks:
       - default
     volumes:
@@ -11,6 +11,4 @@ services:
       - ./data:/mosquitto/data
       - ./log:/mosquitto/log
     ports:
-      - '1883:1883'
-      - '9001:9001'
-
+      - '8883:8883'
